@@ -2,6 +2,13 @@ let myLibrary = [
     {author: 'Jordan B. Petterson', title: '12 Rules for life', pages: 300, read: true}
 ];
 
+
+/*
+    TODO:
+        FIX addToLibrary adding multiple books to the div
+*/
+
+const popup = document.querySelector('.popup');
 const addButton = document.querySelector('#addBook');
 const titleInput = document.querySelector('#title');
 const authorInput = document.querySelector('#author');
@@ -33,6 +40,7 @@ function addBookToLibrary () {
 
 addButton.addEventListener("click", function(event) {
     addBookToLibrary();
+    popup.classList.add('hide');
     event.preventDefault();
 });
 
@@ -51,9 +59,7 @@ function displayBooks () {
                 let key = document.createElement('p');
                 let value = document.createElement('p');
                 key.setAttribute('class', item);
-                key.innerHTML = item;
-                value.innerHTML = book[item];
-
+                
                 if (item == 'read') {
                     value = document.createElement('button');
                     if(book[item]){
@@ -61,9 +67,16 @@ function displayBooks () {
                         value.setAttribute('class' ,'read');
                     } else {
                         value.innerHTML = 'Not Read';
-                        value.setAttribute()
+                        value.setAttribute('class', 'not-read')
                     }
+                    bookDetail.appendChild(value); // Add value of item
+                    newDiv.appendChild(bookDetail); // Add Title and value
+                    continue;
                 }
+
+                key.innerHTML = item;
+                value.innerHTML = book[item];
+
 
                 bookDetail.appendChild(key); // Add title of item
                 bookDetail.appendChild(value); // Add value of item
@@ -75,3 +88,17 @@ function displayBooks () {
 }
 
 displayBooks();
+
+// Close Pop up button
+
+const popUpCloseBtn = popup.querySelector('.close');
+    //Add hide class to make popup dissapear
+popUpCloseBtn.addEventListener('click', function() {
+    popup.classList.add('hide')
+})
+
+//Add book button - remove hide tag
+const addBookBtn = document.querySelector('.add-book');
+addBookBtn.addEventListener('click', function() {
+    popup.classList.remove('hide');
+})
