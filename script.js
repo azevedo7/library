@@ -1,5 +1,5 @@
 let myLibrary = [
-    {author: 'Jordan B. Petterson', title: '12 Rules for life', pages: 300, read: false}
+    {author: 'Jordan B. Petterson', title: '12 Rules for life', pages: 300, read: true}
 ];
 
 const addButton = document.querySelector('#addBook');
@@ -48,11 +48,22 @@ function displayBooks () {
                 const bookDetail = document.createElement('div');
                 bookDetail.setAttribute('class', item);
                 
-                const key = document.createElement('p');
-                const value = document.createElement('p');
+                let key = document.createElement('p');
+                let value = document.createElement('p');
                 key.setAttribute('class', item);
                 key.innerHTML = item;
                 value.innerHTML = book[item];
+
+                if (item == 'read') {
+                    value = document.createElement('button');
+                    if(book[item]){
+                        value.innerHTML = 'Read';
+                        value.setAttribute('class' ,'read');
+                    } else {
+                        value.innerHTML = 'Not Read';
+                        value.setAttribute()
+                    }
+                }
 
                 bookDetail.appendChild(key); // Add title of item
                 bookDetail.appendChild(value); // Add value of item

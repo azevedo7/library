@@ -1,21 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Prompt:wght@600&family=Roboto:wght@100;300;400;700&display=swap');
+
 body {
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    color: white;
 }
 
 .popup {
-    /* position:absolute; */
+    position:absolute;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
-    padding: 100px;
+    width: 200px;
+    padding: 50px;
     background-color: grey;
+    border-radius: 20px;
 }
 
 input[type=text],
 input[type=number] {
-    width: 200px;
+    width: 150px;
 }
 
 form {
@@ -29,8 +34,10 @@ form {
 }
 
 #library > div {
-    background-color: blue;
+    background-color: rgb(128, 128, 235);
     width: 30%;
+    border-radius: 20px;
+    padding: 10px;
 }
 
 #library > div > div{
