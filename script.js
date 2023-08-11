@@ -5,7 +5,7 @@ let myLibrary = [
 
 /*
     TODO:
-        FIX addToLibrary adding multiple books to the div   
+        Add Id to each book so it is possible to have same title (Now we are using the title for identification)
         Animate hide class
 */
 
@@ -80,17 +80,38 @@ function displayBooks () {
                 key.innerHTML = item;
                 value.innerHTML = book[item];
 
-
+                
                 bookDetail.appendChild(key); // Add title of item
                 bookDetail.appendChild(value); // Add value of item
                 newDiv.appendChild(bookDetail); // Add Title and value
             }
+            // add remove book button
+            const removeBookDiv = document.createElement('div');
+            const removeBook = createButton('Remove book', 'remove');
+            removeBook.addEventListener('click', function () {
+                let arrayItem = myLibrary.findIndex(item => item == book);
+                myLibrary.splice(arrayItem, 1);
+                removeBookDiv.parentElement.remove();
+            })
+
+            removeBookDiv.appendChild(removeBook);
+            newDiv.appendChild(removeBookDiv);
+
             library.appendChild(newDiv);
         }
     }) 
 }
 
 displayBooks();
+
+// Function to create Buttons
+function createButton(text, className) {
+    const button = document.createElement('button');
+    button.setAttribute('class', className);
+    button.innerHTML = text;
+    return button;
+}
+
 
 // Close Pop up button
 
