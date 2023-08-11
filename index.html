@@ -8,9 +8,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="add-book">+</button>
+    <div class="header">
+        <div class="logo">LIBRARY</div>
+        <button class="add-book">Add Book</button>
+    </div>
 
-    <div class="popup">
+    <div class="body">
+        <div id="library"></div>
+    </div>
+    
+    <div class="footer">
+        <p>Made for <a href="https://www.theodinproject.com/">The Odin Project</a> by Azevedo</p>
+    </div>
+
+    <div class="popup hide">
         <button class="close">X</button>
         <form action="">
             <label for="title">Title</label>
@@ -28,8 +39,7 @@
             <button type="input" id="addBook">Add Book</button>
         </form>
     </div>
-    <div id="library">
+    
         
-    </div>
 </body>
 </html>

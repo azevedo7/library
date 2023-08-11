@@ -72,6 +72,22 @@ function displayBooks () {
                         value.innerHTML = 'Not Read';
                         value.setAttribute('class', 'not-read')
                     }
+
+                    value.addEventListener('click', function (e) {
+                        if (value.classList.contains('read')) {
+                            value.classList.remove('read');
+                            value.classList.add('not-read');
+                            value.innerHTML = 'Not read'
+                            book.read = false;
+                        }
+                        else {
+                            value.classList.remove('not-read');
+                            value.classList.add('read');
+                            value.innerHTML = 'Read';
+                            book.read = true;
+                        }
+                    })
+
                     bookDetail.appendChild(value); // Add value of item
                     newDiv.appendChild(bookDetail); // Add Title and value
                     continue;

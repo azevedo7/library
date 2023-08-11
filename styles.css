@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Prompt:wght@600&family=Roboto:wght@100;300;400;700&display=swap');
 
+:root {
+    --main-color:  rgb(137, 137, 211);
+}
+
 body {
     height: 100vh;
     padding: 0;
@@ -9,20 +13,43 @@ body {
     background-color: #FAFAF5;
 }
 
+.header {
+    height: 8%;
+    background-color: var(--main-color);
+    margin-bottom: 40px;
+    align-items: center;
+    justify-content: start;
+    display: flex;
+    position: sticky;
+}
+
+.header .logo {
+    padding-left: 5%;
+    color: white;
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.body {
+    width: 70%;
+    margin: 0 auto;
+}
+
 .hide {
     display: none;
 }
 
 .popup {
     position:absolute;
+    top: calc(50vh - 300px);
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
     width: 200px;
     padding: 50px;
-    background-color: rgb(51, 95, 177);
-    border-radius: 20px;
+    background-color:var(--main-color);
+    border-radius: 10px;
     color: white;
 }
 
@@ -52,21 +79,24 @@ body {
 
 .add-book {
     border: none;
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    font-size:40px;
-    background-color: green;
-    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    font-size:1em;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     position: absolute;
-    right: 50px;
-    bottom: 50px;
-}
+    right: 5%;
+}   
 
 input[type=text],
 input[type=number] {
     width: 150px;
+    border: none;
+    border-radius: 7px;
+    padding: 2px;
+    font-size: 1.1em;
 }
+
 
 form {
     display: grid;
@@ -80,19 +110,19 @@ form > * {
 
 #library {
     display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 400px));
     gap: 10px;
+    justify-content: center;
 }
 
 #library > div {
     background-color: #ffffff;
-    width: 30%;
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 0 10px rgba(189, 168, 168, 0.459);
     display: grid;
     justify-content: center;
     gap: 10px;
-    width: 300px;
 }
 
 #library > div > div{
@@ -110,7 +140,8 @@ form > * {
 }
 
 #library button.read {
-    background-color: #00d37f;
+    background-color: #059144;
+    color: white;
 }
 
 /* #library button.not-read {
@@ -119,5 +150,17 @@ form > * {
 
 #library .remove:hover {
     background-color: rgb(240, 77, 77);
+    color: white;
 }
 
+.footer {
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+}
+
+.footer a {
+    color: rgb(61, 55, 19);
+}
