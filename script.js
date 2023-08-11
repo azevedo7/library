@@ -5,7 +5,8 @@ let myLibrary = [
 
 /*
     TODO:
-        FIX addToLibrary adding multiple books to the div
+        FIX addToLibrary adding multiple books to the div   
+        Animate hide class
 */
 
 const popup = document.querySelector('.popup');
@@ -14,6 +15,7 @@ const titleInput = document.querySelector('#title');
 const authorInput = document.querySelector('#author');
 const pagesInput = document.querySelector('#pages');
 const readCheck = document.querySelector('#read');
+const form = document.querySelector('form');
 
 const library = document.querySelector('#library');
 
@@ -29,20 +31,21 @@ let title = '';
 let pages = 0;
 let read = false;
 
-function addBookToLibrary () {
+function addBookToLibrary (event) {
     author = authorInput.value;
     title = titleInput.value;
     pages = pagesInput.value;
     read = readCheck.checked;
     myLibrary.push(new Book(author, title, pages, read));
     displayBooks();
+    event.preventDefault();
 }
 
-addButton.addEventListener("click", function(event) {
-    addBookToLibrary();
-    popup.classList.add('hide');
-    event.preventDefault();
-});
+// addButton.addEventListener("click", function(event) {
+//     addBookToLibrary();
+// });
+
+form.addEventListener('submit', addBookToLibrary);
 
 // Para cada item na libraria criar um div
 // Nesse div, para cada item do objeto criar um div
