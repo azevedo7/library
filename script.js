@@ -1,6 +1,4 @@
-let myLibrary = [
-    {author: 'Jordan B. Petterson', title: '12 Rules for life', pages: 300, read: true}
-];
+let myLibrary = [];
 
 
 /*
@@ -19,11 +17,13 @@ const form = document.querySelector('form');
 
 const library = document.querySelector('#library');
 
-function Book(author, title, pages, read) {
-    this.author = author;
-    this.title = title;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(author, title, pages, read) {
+        this.author = author;
+        this.title = title;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 let author = '';
@@ -41,9 +41,8 @@ function addBookToLibrary (event) {
     event.preventDefault();
 }
 
-// addButton.addEventListener("click", function(event) {
-//     addBookToLibrary();
-// });
+// Just a sample book
+myLibrary.push(new Book('Jordan B. Petterson', '12 Rules for life', 300, false));
 
 form.addEventListener('submit', addBookToLibrary);
 
@@ -142,3 +141,5 @@ const addBookBtn = document.querySelector('.add-book');
 addBookBtn.addEventListener('click', function() {
     popup.classList.remove('hide');
 })
+
+
