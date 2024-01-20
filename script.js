@@ -14,6 +14,7 @@ const authorInput = document.querySelector('#author');
 const pagesInput = document.querySelector('#pages');
 const readCheck = document.querySelector('#read');
 const form = document.querySelector('form');
+const error = document.querySelector('.error');
 
 const library = document.querySelector('#library');
 
@@ -31,20 +32,36 @@ let title = '';
 let pages = 0;
 let read = false;
 
-function addBookToLibrary (event) {
+function addBookToLibrary () {
     author = authorInput.value;
     title = titleInput.value;
     pages = pagesInput.value;
     read = readCheck.checked;
     myLibrary.push(new Book(author, title, pages, read));
     displayBooks();
-    event.preventDefault();
 }
 
 // Just a sample book
 myLibrary.push(new Book('Jordan B. Petterson', '12 Rules for life', 300, false));
 
-form.addEventListener('submit', addBookToLibrary);
+form.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    let errors = [];
+    if(titleInput.value.length == 0){
+        errors.push('Please add a title');
+    }
+    if(errors.length==0){ // success
+        popup.classList.add('hide');
+        error.innerHTML = '';
+        error.classList.add('hide');
+        addBookToLibrary();
+    }
+    else{
+        error.innerHTML = errors.join(', ');
+        error.classList.remove('hide');
+    }
+});
+
 
 // Para cada item na libraria criar um div
 // Nesse div, para cada item do objeto criar um div
