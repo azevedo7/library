@@ -4,12 +4,13 @@
     --main-color:  rgb(137, 137, 211);
 }
 
+
 body {
     height: 100vh;
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    color: 2f3556;
+    color: #2f3556;
     background-color: #FAFAF5;
 }
 
@@ -36,7 +37,14 @@ body {
 }
 
 .hide {
+    animation: close 0.3s;
     display: none;
+
+}
+
+@keyframes openPopUp {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
 
 .popup {
@@ -48,9 +56,11 @@ body {
     margin-right: auto;
     width: 200px;
     padding: 50px;
+    padding-bottom: 25px;
     background-color:var(--main-color);
-    border-radius: 10px;
+    border-radius: 20px;
     color: white;
+    animation: openPopUp 0.3s;
 }
 
 .popup .close {
@@ -137,16 +147,19 @@ form > * {
     border: none;
     border-radius: 20px;
     padding: 10px;
+    background-color: #f5f5f5;
 }
 
 #library button.read {
+    animation: read 0.3s;
     background-color: #059144;
     color: white;
 }
 
-/* #library button.not-read {
-    
-} */
+@keyframes read {
+    from {background-color: #f5f5f5;}
+    to {background-color: #059144;}
+  }
 
 #library .remove:hover {
     background-color: rgb(240, 77, 77);
@@ -163,4 +176,12 @@ form > * {
 
 .footer a {
     color: rgb(61, 55, 19);
+}
+
+.error{
+    background-color: rgb(219, 103, 132);
+    padding: 3px;
+    padding-top: 0px;
+    border-radius: 6px;
+    text-align: center;
 }
